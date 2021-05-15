@@ -3,6 +3,6 @@ function onSay(player, words, param)
 		return true
 	end
 
-	player:teleportTo(player:getTown():getTemplePosition())
+	player:teleportTo(player:getTown():getTemplePosition(), true)
 	return false
 end
