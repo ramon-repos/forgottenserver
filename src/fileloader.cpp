@@ -26,7 +26,7 @@ namespace OTB {
 
 constexpr Identifier wildcard = {{'\0', '\0', '\0', '\0'}};
 
-Loader::Loader(const std::string& fileName, const Identifier& acceptedIdentifier):
+Loader::Loader(const std::string& fileName, const Identifier& acceptedIdentifier) :
 	fileContents(fileName)
 {
 	constexpr auto minimalSize = sizeof(Identifier) + sizeof(Node::START) + sizeof(Node::type) + sizeof(Node::END);

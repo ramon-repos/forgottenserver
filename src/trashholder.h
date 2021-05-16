@@ -27,7 +27,8 @@
 class TrashHolder final : public Item, public Cylinder
 {
 	public:
-		explicit TrashHolder(uint16_t itemId) : Item(itemId) {}
+		explicit TrashHolder(uint16_t itemId) :
+			Item(itemId) {}
 
 		TrashHolder* getTrashHolder() override {
 			return this;

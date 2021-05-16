@@ -30,7 +30,8 @@
 extern ConfigManager g_config;
 extern Game g_game;
 
-House::House(uint32_t houseId) : id(houseId) {}
+House::House(uint32_t houseId) :
+	id(houseId) {}
 
 void House::addTile(HouseTile* tile)
 {
@@ -533,7 +534,8 @@ void AccessList::getList(std::string& list) const
 	list = this->list;
 }
 
-Door::Door(uint16_t type) :	Item(type) {}
+Door::Door(uint16_t type) :
+	Item(type) {}
 
 Attr_ReadValue Door::readAttr(AttrTypes_t attr, PropStream& propStream)
 {

@@ -174,8 +174,7 @@ class Npc final : public Creature
 		}
 
 		void onPlayerCloseChannel(Player* player);
-		void onPlayerTrade(Player* player, int32_t callback, uint16_t itemId, uint8_t count,
-		                   uint8_t amount, bool ignore = false, bool inBackpacks = false);
+		void onPlayerTrade(Player* player, int32_t callback, uint16_t itemId, uint8_t count, uint8_t amount, bool ignore = false, bool inBackpacks = false);
 		void onPlayerEndTrade(Player* player, int32_t buyCallback, int32_t sellCallback);
 
 		void turnToCreature(Creature* creature);
@@ -190,8 +189,7 @@ class Npc final : public Creature
 
 		void onCreatureAppear(Creature* creature, bool isLogin) override;
 		void onRemoveCreature(Creature* creature, bool isLogout) override;
-		void onCreatureMove(Creature* creature, const Tile* newTile, const Position& newPos,
-		                            const Tile* oldTile, const Position& oldPos, bool teleport) override;
+		void onCreatureMove(Creature* creature, const Tile* newTile, const Position& newPos, const Tile* oldTile, const Position& oldPos, bool teleport) override;
 
 		void onCreatureSay(Creature* creature, SpeakClasses type, const std::string& text) override;
 		void onThink(uint32_t interval) override;

@@ -172,8 +172,7 @@ void GlobalEvents::timer()
 	}
 
 	if (nextScheduledTime != std::numeric_limits<int64_t>::max()) {
-		timerEventId = g_scheduler.addEvent(createSchedulerTask(std::max<int64_t>(1000, nextScheduledTime * 1000),
-							                std::bind(&GlobalEvents::timer, this)));
+		timerEventId = g_scheduler.addEvent(createSchedulerTask(std::max<int64_t>(1000, nextScheduledTime * 1000), std::bind(&GlobalEvents::timer, this)));
 	}
 }
 
@@ -241,7 +240,8 @@ GlobalEventMap GlobalEvents::getEventMap(GlobalEvent_t type)
 	}
 }
 
-GlobalEvent::GlobalEvent(LuaScriptInterface* interface) : Event(interface) {}
+GlobalEvent::GlobalEvent(LuaScriptInterface* interface) :
+	Event(interface) {}
 
 bool GlobalEvent::configureEvent(const pugi::xml_node& node)
 {

@@ -37,8 +37,7 @@ class Action : public Event
 		bool loadFunction(const pugi::xml_attribute& attr, bool isScripted) override;
 
 		//scripting
-		virtual bool executeUse(Player* player, Item* item, const Position& fromPosition,
-			Thing* target, const Position& toPosition, bool isHotkey);
+		virtual bool executeUse(Player* player, Item* item, const Position& fromPosition, Thing* target, const Position& toPosition, bool isHotkey);
 
 		bool getAllowFarUse() const {
 			return allowFarUse;

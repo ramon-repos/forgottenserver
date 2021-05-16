@@ -95,7 +95,8 @@ void BaseEvents::reInitState(bool fromLua)
 	}
 }
 
-Event::Event(LuaScriptInterface* interface) : scriptInterface(interface) {}
+Event::Event(LuaScriptInterface* interface) :
+	scriptInterface(interface) {}
 
 bool Event::checkScript(const std::string& basePath, const std::string& scriptsName, const std::string& scriptFile) const
 {

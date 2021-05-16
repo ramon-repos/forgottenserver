@@ -511,7 +511,8 @@ struct LightInfo {
 	uint8_t level = 0;
 	uint8_t color = 0;
 	constexpr LightInfo() = default;
-	constexpr LightInfo(uint8_t level, uint8_t color) : level(level), color(color) {}
+	constexpr LightInfo(uint8_t level, uint8_t color) :
+		level(level), color(color) {}
 };
 
 struct ShopInfo {
@@ -528,8 +529,8 @@ struct ShopInfo {
 		sellPrice = 0;
 	}
 
-	ShopInfo(uint16_t itemId, int32_t subType = 0, uint32_t buyPrice = 0, uint32_t sellPrice = 0, std::string realName = "")
-		: itemId(itemId), subType(subType), buyPrice(buyPrice), sellPrice(sellPrice), realName(std::move(realName)) {}
+	ShopInfo(uint16_t itemId, int32_t subType = 0, uint32_t buyPrice = 0, uint32_t sellPrice = 0, std::string realName = "") :
+		itemId(itemId), subType(subType), buyPrice(buyPrice), sellPrice(sellPrice), realName(std::move(realName)) {}
 };
 
 struct MarketOffer {
@@ -544,9 +545,7 @@ struct MarketOffer {
 struct MarketOfferEx {
 	MarketOfferEx() = default;
 	MarketOfferEx(MarketOfferEx&& other) :
-		id(other.id), playerId(other.playerId), timestamp(other.timestamp), price(other.price),
-		amount(other.amount), counter(other.counter), itemId(other.itemId), type(other.type),
-		playerName(std::move(other.playerName)) {}
+		id(other.id), playerId(other.playerId), timestamp(other.timestamp), price(other.price), amount(other.amount), counter(other.counter), itemId(other.itemId), type(other.type), playerName(std::move(other.playerName)) {}
 
 	uint32_t id;
 	uint32_t playerId;
@@ -589,8 +588,8 @@ struct ModalWindow
 	uint8_t defaultEnterButton, defaultEscapeButton;
 	bool priority;
 
-	ModalWindow(uint32_t id, std::string title, std::string message)
-		: title(std::move(title)), message(std::move(message)), id(id), defaultEnterButton(0xFF), defaultEscapeButton(0xFF), priority(false) {}
+	ModalWindow(uint32_t id, std::string title, std::string message) :
+		title(std::move(title)), message(std::move(message)), id(id), defaultEnterButton(0xFF), defaultEscapeButton(0xFF), priority(false) {}
 };
 
 enum CombatOrigin

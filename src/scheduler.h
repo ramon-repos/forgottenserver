@@ -41,7 +41,8 @@ class SchedulerTask : public Task
 			return delay;
 		}
 	private:
-		SchedulerTask(uint32_t delay, TaskFunc&& f) : Task(std::move(f)), delay(delay) {}
+		SchedulerTask(uint32_t delay, TaskFunc&& f) :
+			Task(std::move(f)), delay(delay) {}
 
 		uint32_t eventId = 0;
 		uint32_t delay = 0;

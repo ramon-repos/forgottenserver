@@ -279,14 +279,12 @@ class LuaScriptInterface
 
 		// Get
 		template<typename T>
-		static typename std::enable_if<std::is_enum<T>::value, T>::type
-			getNumber(lua_State* L, int32_t arg)
+		static typename std::enable_if<std::is_enum<T>::value, T>::type getNumber(lua_State* L, int32_t arg)
 		{
 			return static_cast<T>(static_cast<int64_t>(lua_tonumber(L, arg)));
 		}
 		template<typename T>
-		static typename std::enable_if<std::is_integral<T>::value || std::is_floating_point<T>::value, T>::type
-			getNumber(lua_State* L, int32_t arg)
+		static typename std::enable_if<std::is_integral<T>::value || std::is_floating_point<T>::value, T>::type getNumber(lua_State* L, int32_t arg)
 		{
 			return static_cast<T>(lua_tonumber(L, arg));
 		}

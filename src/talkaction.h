@@ -36,7 +36,8 @@ enum TalkActionResult_t {
 class TalkAction : public Event
 {
 	public:
-		explicit TalkAction(LuaScriptInterface* interface) : Event(interface) {}
+		explicit TalkAction(LuaScriptInterface* interface) :
+			Event(interface) {}
 
 		bool configureEvent(const pugi::xml_node& node) override;
 

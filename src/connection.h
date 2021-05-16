@@ -70,11 +70,7 @@ class Connection : public std::enable_shared_from_this<Connection>
 
 		Connection(boost::asio::io_service& io_service,
 		ConstServicePort_ptr service_port) :
-			readTimer(io_service),
-			writeTimer(io_service),
-			service_port(std::move(service_port)),
-			socket(io_service),
-			timeConnected(time(nullptr)) {}
+			readTimer(io_service), writeTimer(io_service), service_port(std::move(service_port)), socket(io_service), timeConnected(time(nullptr)) {}
 		~Connection();
 
 		friend class ConnectionManager;

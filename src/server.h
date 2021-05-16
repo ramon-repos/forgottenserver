@@ -62,7 +62,8 @@ class Service final : public ServiceBase
 class ServicePort : public std::enable_shared_from_this<ServicePort>
 {
 	public:
-		explicit ServicePort(boost::asio::io_service& io_service) : io_service(io_service) {}
+		explicit ServicePort(boost::asio::io_service& io_service) :
+			io_service(io_service) {}
 		~ServicePort();
 
 		// non-copyable
@@ -143,9 +144,7 @@ bool ServiceManager::add(uint16_t port)
 		service_port = foundServicePort->second;
 
 		if (service_port->is_single_socket() || ProtocolType::server_sends_first) {
-			std::cout << "ERROR: " << ProtocolType::protocol_name() <<
-			          " and " << service_port->get_protocol_names() <<
-			          " cannot use the same port " << port << '.' << std::endl;
+			std::cout << "ERROR: " << ProtocolType::protocol_name() << " and " << service_port->get_protocol_names() << " cannot use the same port " << port << '.' << std::endl;
 			return false;
 		}
 	}

@@ -128,13 +128,10 @@ class Container : public Item, public Cylinder
 		}
 
 		//cylinder implementations
-		virtual ReturnValue queryAdd(int32_t index, const Thing& thing, uint32_t count,
-				uint32_t flags, Creature* actor = nullptr) const override;
-		ReturnValue queryMaxCount(int32_t index, const Thing& thing, uint32_t count, uint32_t& maxQueryCount,
-				uint32_t flags) const override final;
+		virtual ReturnValue queryAdd(int32_t index, const Thing& thing, uint32_t count, uint32_t flags, Creature* actor = nullptr) const override;
+		ReturnValue queryMaxCount(int32_t index, const Thing& thing, uint32_t count, uint32_t& maxQueryCount, uint32_t flags) const override final;
 		ReturnValue queryRemove(const Thing& thing, uint32_t count, uint32_t flags, Creature* actor = nullptr) const override final;
-		Cylinder* queryDestination(int32_t& index, const Thing& thing, Item** destItem,
-				uint32_t& flags) override final;
+		Cylinder* queryDestination(int32_t& index, const Thing& thing, Item** destItem, uint32_t& flags) override final;
 
 		void addThing(Thing* thing) override final;
 		void addThing(int32_t index, Thing* thing) override final;

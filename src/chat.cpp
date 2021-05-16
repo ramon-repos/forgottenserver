@@ -278,9 +278,8 @@ bool ChatChannel::executeOnSpeakEvent(const Player& player, SpeakClasses& type, 
 	return result;
 }
 
-Chat::Chat():
-	scriptInterface("Chat Interface"),
-	dummyPrivate(CHANNEL_PRIVATE, "Private Chat Channel")
+Chat::Chat() :
+	scriptInterface("Chat Interface"), dummyPrivate(CHANNEL_PRIVATE, "Private Chat Channel")
 {
 	scriptInterface.initState();
 }

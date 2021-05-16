@@ -26,7 +26,8 @@
 
 extern Game g_game;
 
-BedItem::BedItem(uint16_t id) : Item(id)
+BedItem::BedItem(uint16_t id) :
+	Item(id)
 {
 	internalRemoveSleeper();
 }

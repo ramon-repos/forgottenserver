@@ -36,7 +36,8 @@ using GuildRank_ptr = std::shared_ptr<GuildRank>;
 class Guild
 {
 	public:
-		Guild(uint32_t id, std::string name) : name(std::move(name)), id(id) {}
+		Guild(uint32_t id, std::string name) :
+			name(std::move(name)), id(id) {}
 
 		void addMember(Player* player);
 		void removeMember(Player* player);

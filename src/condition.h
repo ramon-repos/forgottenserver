@@ -73,8 +73,7 @@ class Condition
 	public:
 		Condition() = default;
 		Condition(ConditionId_t id, ConditionType_t type, int32_t ticks, bool buff = false, uint32_t subId = 0, bool aggressive = false) :
-			endTime(ticks == -1 ? std::numeric_limits<int64_t>::max() : 0),
-			subId(subId), ticks(ticks), conditionType(type), isBuff(buff), aggressive(aggressive), id(id) {}
+			endTime(ticks == -1 ? std::numeric_limits<int64_t>::max() : 0),	subId(subId), ticks(ticks), conditionType(type), isBuff(buff), aggressive(aggressive), id(id) {}
 		virtual ~Condition() = default;
 
 		virtual bool startCondition(Creature* creature);
@@ -134,7 +133,7 @@ class Condition
 class ConditionGeneric : public Condition
 {
 	public:
-		ConditionGeneric(ConditionId_t id, ConditionType_t type, int32_t ticks, bool buff = false, uint32_t subId = 0, bool aggressive = false):
+		ConditionGeneric(ConditionId_t id, ConditionType_t type, int32_t ticks, bool buff = false, uint32_t subId = 0, bool aggressive = false) :
 			Condition(id, type, ticks, buff, subId, aggressive) {}
 
 		bool startCondition(Creature* creature) override;
@@ -189,7 +188,7 @@ class ConditionAttributes final : public ConditionGeneric
 class ConditionRegeneration final : public ConditionGeneric
 {
 	public:
-		ConditionRegeneration(ConditionId_t id, ConditionType_t type, int32_t ticks, bool buff = false, uint32_t subId = 0, bool aggressive = false):
+		ConditionRegeneration(ConditionId_t id, ConditionType_t type, int32_t ticks, bool buff = false, uint32_t subId = 0, bool aggressive = false) :
 			ConditionGeneric(id, type, ticks, buff, subId, aggressive) {}
 
 		void addCondition(Creature* creature, const Condition* condition) override;

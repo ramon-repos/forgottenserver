@@ -219,10 +219,12 @@ class ItemAttributes
 			typedef boost::variant<boost::blank, std::string, int64_t, double, bool> VariantAttribute;
 			VariantAttribute value;
 
-			CustomAttribute() : value(boost::blank()) {}
+			CustomAttribute() :
+				value(boost::blank()) {}
 
 			template<typename T>
-			explicit CustomAttribute(const T& v) : value(v) {}
+			explicit CustomAttribute(const T& v) :
+				value(v) {}
 
 			template<typename T>
 			void set(const T& v) {
@@ -235,7 +237,8 @@ class ItemAttributes
 			struct PushLuaVisitor : public boost::static_visitor<> {
 				lua_State* L;
 
-				explicit PushLuaVisitor(lua_State* L) : boost::static_visitor<>(), L(L) {}
+				explicit PushLuaVisitor(lua_State* L) :
+					boost::static_visitor<>(), L(L) {}
 
 				void operator()(const boost::blank&) const {
 					lua_pushnil(L);
@@ -265,7 +268,8 @@ class ItemAttributes
 			struct SerializeVisitor : public boost::static_visitor<> {
 				PropWriteStream& propWriteStream;
 
-				explicit SerializeVisitor(PropWriteStream& propWriteStream) : boost::static_visitor<>(), propWriteStream(propWriteStream) {}
+				explicit SerializeVisitor(PropWriteStream& propWriteStream) :
+					boost::static_visitor<>(), propWriteStream(propWriteStream) {}
 
 				void operator()(const boost::blank&) const {
 				}
@@ -360,7 +364,8 @@ class ItemAttributes
 			} value;
 			itemAttrTypes type;
 
-			explicit Attribute(itemAttrTypes type) : type(type) {
+			explicit Attribute(itemAttrTypes type) :
+				type(type) {
 				memset(&value, 0, sizeof(value));
 			}
 			Attribute(const Attribute& i) {
@@ -375,7 +380,8 @@ class ItemAttributes
 					memset(&value, 0, sizeof(value));
 				}
 			}
-			Attribute(Attribute&& attribute) : value(attribute.value), type(attribute.type) {
+			Attribute(Attribute&& attribute) :
+				value(attribute.value), type(attribute.type) {
 				memset(&attribute.value, 0, sizeof(value));
 				attribute.type = ITEM_ATTRIBUTE_NONE;
 			}

@@ -116,7 +116,8 @@ class HouseTransferItem final : public Item
 	public:
 		static HouseTransferItem* createHouseTransferItem(House* house);
 
-		explicit HouseTransferItem(House* house) : Item(0), house(house) {}
+		explicit HouseTransferItem(House* house) :
+			Item(0), house(house) {}
 
 		void onTradeEvent(TradeEvents_t event, Player* owner) override;
 		bool canTransform() const override {

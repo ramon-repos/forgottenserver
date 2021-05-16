@@ -150,7 +150,8 @@ class Tile : public Cylinder
 {
 	public:
 		static Tile& nullptr_tile;
-		Tile(uint16_t x, uint16_t y, uint8_t z) : tilePos(x, y, z) {}
+		Tile(uint16_t x, uint16_t y, uint8_t z) :
+			tilePos(x, y, z) {}
 		virtual ~Tile() {
 			delete ground;
 		};
@@ -236,10 +237,8 @@ class Tile : public Cylinder
 		int32_t getStackposOfItem(const Player* player, const Item* item) const;
 
 		//cylinder implementations
-		ReturnValue queryAdd(int32_t index, const Thing& thing, uint32_t count,
-				uint32_t flags, Creature* actor = nullptr) const override;
-		ReturnValue queryMaxCount(int32_t index, const Thing& thing, uint32_t count,
-				uint32_t& maxQueryCount, uint32_t flags) const override final;
+		ReturnValue queryAdd(int32_t index, const Thing& thing, uint32_t count,	uint32_t flags, Creature* actor = nullptr) const override;
+		ReturnValue queryMaxCount(int32_t index, const Thing& thing, uint32_t count, uint32_t& maxQueryCount, uint32_t flags) const override final;
 		ReturnValue queryRemove(const Thing& thing, uint32_t count, uint32_t flags, Creature* actor = nullptr) const override;
 		Tile* queryDestination(int32_t& index, const Thing& thing, Item** destItem, uint32_t& flags) override;
 
@@ -305,7 +304,8 @@ class DynamicTile : public Tile
 		CreatureVector creatures;
 
 	public:
-		DynamicTile(uint16_t x, uint16_t y, uint8_t z) : Tile(x, y, z) {}
+		DynamicTile(uint16_t x, uint16_t y, uint8_t z) :
+			Tile(x, y, z) {}
 		~DynamicTile() {
 			for (Item* item : items) {
 				item->decrementReferenceCounter();
@@ -345,7 +345,8 @@ class StaticTile final : public Tile
 	std::unique_ptr<CreatureVector> creatures;
 
 	public:
-		StaticTile(uint16_t x, uint16_t y, uint8_t z) : Tile(x, y, z) {}
+		StaticTile(uint16_t x, uint16_t y, uint8_t z) :
+			Tile(x, y, z) {}
 		~StaticTile() {
 			if (items) {
 				for (Item* item : *items) {

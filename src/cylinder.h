@@ -60,8 +60,7 @@ class Cylinder : virtual public Thing
 		  * \param actor the creature trying to add the thing
 		  * \returns ReturnValue holds the return value
 		  */
-		virtual ReturnValue queryAdd(int32_t index, const Thing& thing, uint32_t count,
-				uint32_t flags, Creature* actor = nullptr) const = 0;
+		virtual ReturnValue queryAdd(int32_t index, const Thing& thing, uint32_t count, uint32_t flags, Creature* actor = nullptr) const = 0;
 
 		/**
 		  * Query the cylinder how much it can accept
@@ -73,8 +72,7 @@ class Cylinder : virtual public Thing
 		  * \param flags optional flags to modify the default behaviour
 		  * \returns ReturnValue holds the return value
 		  */
-		virtual ReturnValue queryMaxCount(int32_t index, const Thing& thing, uint32_t count, uint32_t& maxQueryCount,
-				uint32_t flags) const = 0;
+		virtual ReturnValue queryMaxCount(int32_t index, const Thing& thing, uint32_t count, uint32_t& maxQueryCount, uint32_t flags) const = 0;
 
 		/**
 		  * Query if the cylinder can remove an object

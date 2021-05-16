@@ -25,7 +25,8 @@
 class WildcardTreeNode
 {
 	public:
-		explicit WildcardTreeNode(bool breakpoint) : breakpoint(breakpoint) {}
+		explicit WildcardTreeNode(bool breakpoint) :
+			breakpoint(breakpoint) {}
 		WildcardTreeNode(WildcardTreeNode&& other) = default;
 
 		// non-copyable

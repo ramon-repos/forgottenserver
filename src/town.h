@@ -25,7 +25,8 @@
 class Town
 {
 	public:
-		explicit Town(uint32_t id) : id(id) {}
+		explicit Town(uint32_t id) :
+			id(id) {}
 
 		const Position& getTemplePosition() const {
 			return templePosition;

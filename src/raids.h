@@ -212,7 +212,8 @@ class AreaSpawnEvent final : public RaidEvent
 class ScriptEvent final : public RaidEvent, public Event
 {
 	public:
-		explicit ScriptEvent(LuaScriptInterface* interface) : Event(interface) {}
+		explicit ScriptEvent(LuaScriptInterface* interface) :
+			Event(interface) {}
 
 		bool configureRaidEvent(const pugi::xml_node& eventNode) override;
 		bool configureEvent(const pugi::xml_node&) override {

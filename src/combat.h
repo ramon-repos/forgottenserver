@@ -38,7 +38,8 @@ struct Position;
 class ValueCallback final : public CallBack
 {
 	public:
-		explicit ValueCallback(formulaType_t type): type(type) {}
+		explicit ValueCallback(formulaType_t type) :
+			type(type) {}
 		void getMinMaxValues(Player* player, CombatDamage& damage) const;
 
 	private:
@@ -88,7 +89,8 @@ class MatrixArea
 
 	public:
 		MatrixArea() = default;
-		MatrixArea(uint32_t rows, uint32_t cols): arr(rows * cols), rows{rows}, cols{cols} {}
+		MatrixArea(uint32_t rows, uint32_t cols) :
+			arr(rows * cols), rows{rows}, cols{cols} {}
 
 		bool operator()(uint32_t row, uint32_t col) const { return arr[row * cols + col]; }
 		bool& operator()(uint32_t row, uint32_t col) { return arr[row * cols + col]; }
@@ -109,7 +111,7 @@ class MatrixArea
 		operator bool() const { return rows == 0 || cols == 0; }
 
 	private:
-		MatrixArea(Center center, uint32_t rows, uint32_t cols, Container&& arr):
+		MatrixArea(Center center, uint32_t rows, uint32_t cols, Container&& arr) :
 			arr{std::move(arr)}, center{std::move(center)}, rows{rows}, cols{cols} {}
 
 		Container arr = {};
@@ -203,7 +205,8 @@ class Combat
 class MagicField final : public Item
 {
 	public:
-		explicit MagicField(uint16_t type) : Item(type), createTime(OTSYS_TIME()) {}
+		explicit MagicField(uint16_t type) :
+			Item(type), createTime(OTSYS_TIME()) {}
 
 		MagicField* getMagicField() override {
 			return this;

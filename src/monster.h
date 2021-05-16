@@ -173,8 +173,7 @@ class Monster final : public Creature
 			return ignoreFieldDamage;
 		}
 
-		BlockType_t blockHit(Creature* attacker, CombatType_t combatType, int32_t& damage,
-		                     bool checkDefense = false, bool checkArmor = false, bool field = false, bool ignoreResistances = false) override;
+		BlockType_t blockHit(Creature* attacker, CombatType_t combatType, int32_t& damage, bool checkDefense = false, bool checkArmor = false, bool field = false, bool ignoreResistances = false) override;
 
 		static uint32_t monsterAutoID;
 
@@ -235,11 +234,9 @@ class Monster final : public Creature
 		void onEndCondition(ConditionType_t type) override;
 
 		bool canUseAttack(const Position& pos, const Creature* target) const;
-		bool canUseSpell(const Position& pos, const Position& targetPos,
-		                 const spellBlock_t& sb, uint32_t interval, bool& inRange, bool& resetTicks);
+		bool canUseSpell(const Position& pos, const Position& targetPos, const spellBlock_t& sb, uint32_t interval, bool& inRange, bool& resetTicks);
 		bool getRandomStep(const Position& creaturePos, Direction& direction) const;
-		bool getDanceStep(const Position& creaturePos, Direction& direction,
-		                  bool keepAttack = true, bool keepDistance = true);
+		bool getDanceStep(const Position& creaturePos, Direction& direction, bool keepAttack = true, bool keepDistance = true);
 		bool isInSpawnRange(const Position& pos) const;
 		bool canWalkTo(Position pos, Direction direction) const;
 

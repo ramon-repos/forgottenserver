@@ -497,7 +497,8 @@ uint32_t MoveEvents::onItemMove(Item* item, Tile* tile, bool isAdd)
 	return ret;
 }
 
-MoveEvent::MoveEvent(LuaScriptInterface* interface) : Event(interface) {}
+MoveEvent::MoveEvent(LuaScriptInterface* interface) :
+	Event(interface) {}
 
 std::string MoveEvent::getScriptEventName() const
 {

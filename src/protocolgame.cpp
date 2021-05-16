@@ -209,8 +209,7 @@ void ProtocolGame::login(const std::string& name, uint32_t accountId, OperatingS
 			uint8_t retryTime = getWaitTime(currentSlot);
 			std::ostringstream ss;
 
-			ss << "Too many players online.\nYou are at place "
-			   << currentSlot << " on the waiting list.";
+			ss << "Too many players online.\nYou are at place " << currentSlot << " on the waiting list.";
 
 			auto output = OutputMessagePool::getOutputMessage();
 			output->addByte(0x16);

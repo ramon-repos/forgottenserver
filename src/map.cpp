@@ -499,8 +499,7 @@ void Map::clearPlayersSpectatorCache()
 	playersSpectatorCache.clear();
 }
 
-bool Map::canThrowObjectTo(const Position& fromPos, const Position& toPos, bool checkLineOfSight /*= true*/,
-                           int32_t rangex /*= Map::maxClientViewportX*/, int32_t rangey /*= Map::maxClientViewportY*/) const
+bool Map::canThrowObjectTo(const Position& fromPos, const Position& toPos, bool checkLineOfSight /*= true*/, int32_t rangex /*= Map::maxClientViewportX*/, int32_t rangey /*= Map::maxClientViewportY*/) const
 {
 	//z checks
 	//underground 8->15
@@ -783,8 +782,8 @@ bool Map::getPathMatching(const Creature& creature, std::vector<Direction>& dirL
 
 // AStarNodes
 
-AStarNodes::AStarNodes(uint32_t x, uint32_t y)
-	: nodes(), openNodes()
+AStarNodes::AStarNodes(uint32_t x, uint32_t y) :
+	nodes(), openNodes()
 {
 	curNode = 1;
 	closedNodes = 0;
@@ -1023,8 +1022,6 @@ uint32_t Map::clean() const
 		g_game.setGameState(GAME_STATE_NORMAL);
 	}
 
-	std::cout << "> CLEAN: Removed " << count << " item" << (count != 1 ? "s" : "")
-		<< " from " << tiles << " tile" << (tiles != 1 ? "s" : "") << " in "
-		<< (OTSYS_TIME() - start) / (1000.) << " seconds." << std::endl;
+	std::cout << "> CLEAN: Removed " << count << " item" << (count != 1 ? "s" : "") << " from " << tiles << " tile" << (tiles != 1 ? "s" : "") << " in " << (OTSYS_TIME() - start) / (1000.) << " seconds." << std::endl;
 	return count;
 }

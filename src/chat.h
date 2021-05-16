@@ -33,7 +33,7 @@ class ChatChannel
 {
 	public:
 		ChatChannel() = default;
-		ChatChannel(uint16_t channelId, std::string channelName):
+		ChatChannel(uint16_t channelId, std::string channelName) :
 			id{channelId}, name{std::move(channelName)} {}
 
 		virtual ~ChatChannel() = default;
@@ -90,7 +90,8 @@ class ChatChannel
 class PrivateChatChannel final : public ChatChannel
 {
 	public:
-		PrivateChatChannel(uint16_t channelId, std::string channelName) : ChatChannel(channelId, channelName) {}
+		PrivateChatChannel(uint16_t channelId, std::string channelName) :
+			ChatChannel(channelId, channelName) {}
 
 		uint32_t getOwner() const override {
 			return owner;

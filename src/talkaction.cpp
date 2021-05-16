@@ -23,8 +23,8 @@
 #include "talkaction.h"
 #include "pugicast.h"
 
-TalkActions::TalkActions()
-	: scriptInterface("TalkAction Interface")
+TalkActions::TalkActions() :
+	scriptInterface("TalkAction Interface")
 {
 	scriptInterface.initState();
 }
